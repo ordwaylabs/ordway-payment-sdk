@@ -29,6 +29,21 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Steps to implement
+```bash
+# clone the repository
+git clone https://github.com/ordwaylabs/ordway-payment-sdk.git ordway-payments-<gateway-name>
+
+# Move to the folder
+cd ordway-payments-<gateway-name>
+
+#remove the git reference
+npx rimraf ./.git
+```
+
+# Follow the steps to install and start from above steps
+
 ## License
 
 Nest is [MIT licensed](LICENSE).
