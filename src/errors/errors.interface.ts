@@ -1,4 +1,4 @@
-export const errorCodes = [401, 101, 422, 402, 4011, 4221, 4222] as const;
+export const errorCodes = [401, 101, 422, 402, 4011, 4221, 4222, 4012] as const;
 
 type ErrorCodes = typeof errorCodes[number];
 
@@ -10,6 +10,7 @@ export const ErrorCodeMessages: Record<ErrorCodes, string> = {
   4222: 'Incorrectly formatted request parameters',
   402: 'Payment failed',
   4011: 'Not supported operation by the payment gateway',
+  4012: 'Not authorised for user id and tenant id',
 };
 
 export interface Exception {

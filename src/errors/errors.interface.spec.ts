@@ -16,6 +16,9 @@ describe('ErrorCodeMessages', () => {
     expect(ErrorCodeMessages[4222]).toEqual(
       'Incorrectly formatted request parameters',
     );
-    expect(errorCodes.length).toEqual(7);
+    expect(ErrorCodeMessages[4012]).toEqual(
+      'Not authorised for user id and tenant id',
+    );
+    expect(errorCodes.length).toEqual(8);
   });
 });

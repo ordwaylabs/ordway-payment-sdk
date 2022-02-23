@@ -1,6 +1,8 @@
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { isNil } from 'lodash';
+import { ErrorCodeMessages } from '../errors/errors.interface';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -13,6 +15,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
+    if (isNil(payload.user_id) || isNil(payload.tenant_id)) {
+      throw new UnauthorizedException(ErrorCodeMessages[401]);
+    }
     return { user_id: payload.user_id, tenant_id: payload.tenant_id };
   }
 }
