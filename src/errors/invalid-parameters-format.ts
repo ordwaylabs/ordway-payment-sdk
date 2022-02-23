@@ -6,10 +6,17 @@ export class InvalidParametersFormat
   implements Exception
 {
   constructor(
-    public error = error,
+    public error = null,
     public code = errorCodes[6],
     public message = ErrorCodeMessages[errorCodes[6]],
   ) {
-    super(message, HttpStatus.UNPROCESSABLE_ENTITY);
+    super(
+      {
+        error,
+        code,
+        message,
+      },
+      HttpStatus.UNPROCESSABLE_ENTITY,
+    );
   }
 }

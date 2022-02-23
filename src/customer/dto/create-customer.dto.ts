@@ -1,7 +1,7 @@
 import { Optional } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsObject, IsString } from 'class-validator';
-import { PaymentMethod } from 'src/payment-methods/payment-methods.interface';
+import { PaymentMethod } from '../../payment-methods/payment-methods.interface';
 
 export class CreateCustomerDto {
   @ApiProperty({

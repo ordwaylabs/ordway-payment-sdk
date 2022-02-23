@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { PaymentGatewayConfig } from 'src/utils/payment-gateway-config.interface';
-import { HtmlFields } from 'src/utils/html-field.interface';
+import { PaymentGatewayConfig } from '../utils/payment-gateway-config.interface';
+import { HtmlFields } from '../utils/html-field.interface';
 import {
   SetupTenantFieldsServiceInterface,
   SetupTenantServiceInterface,
 } from './setup-tenant.interface';
-import { NonSupportedByPaymentGateway } from 'src/errors/non-supported-by-payment-gateway';
+import { NonSupportedByPaymentGateway } from '../errors/non-supported-by-payment-gateway';
 
 @Injectable()
 export class SetupTenantService

@@ -1,4 +1,4 @@
-import { NonSupportedByPaymentGateway } from 'src/errors/non-supported-by-payment-gateway';
+import { NonSupportedByPaymentGateway } from '../errors/non-supported-by-payment-gateway';
 import { PaymentGatewayAuthenticationKey } from './payment-authentication.interface';
 
 export class PaymentAuthentication {

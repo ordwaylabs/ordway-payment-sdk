@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { NonSupportedByPaymentGateway } from 'src/errors/non-supported-by-payment-gateway';
-import { HtmlFields } from 'src/utils/html-field.interface';
+import { NonSupportedByPaymentGateway } from '../errors/non-supported-by-payment-gateway';
+import { HtmlFields } from '../utils/html-field.interface';
 import { AddPaymentMethodDto } from './dto/add-payment-method.dto';
 import { DeletePaymentMethodDto } from './dto/delete-payment-method.dto';
 import { GetAddPaymentMethodFormDto } from './dto/get-add-payment-method-form.dto';

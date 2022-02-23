@@ -1,6 +1,6 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreatePaymentsDto } from './dto/create-payments.dto';
 import { GetPaymentDto } from './dto/get-payment.dto';
 import { ReconcilePaymentsDto } from './dto/reconcile-payments.dto';

@@ -11,12 +11,12 @@ async function bootstrap() {
     .setVersion('1.0')
     .addBearerAuth()
     .addTag('Customer', 'Create and get the customer payment gateway')
+    .addTag('Setup Tenant', 'Register and update payment gateway for tenant')
     .addTag(
       'Payment Methods',
       'Create, get and update the customer payment method',
     )
     .addTag('Payments', 'Create, get, refund, void and delete the payments')
-    .addTag('Setup Tenant', 'Register and update payment gateway for tenant')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/', app, document, {

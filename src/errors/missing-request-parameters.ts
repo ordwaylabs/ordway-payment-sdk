@@ -6,10 +6,17 @@ export class MissingRequestParameters
   implements Exception
 {
   constructor(
-    public error = error,
+    public error = null,
     public code = errorCodes[5],
     public message = ErrorCodeMessages[errorCodes[5]],
   ) {
-    super(message, HttpStatus.UNPROCESSABLE_ENTITY);
+    super(
+      {
+        error,
+        code,
+        message,
+      },
+      HttpStatus.UNPROCESSABLE_ENTITY,
+    );
   }
 }

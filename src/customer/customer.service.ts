@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { NonSupportedByPaymentGateway } from 'src/errors/non-supported-by-payment-gateway';
+import { NonSupportedByPaymentGateway } from '../errors/non-supported-by-payment-gateway';
 import { Customer, PaymentGatewayCustomer } from './customer.interface';
 
 @Injectable()

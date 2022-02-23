@@ -6,10 +6,17 @@ export class PaymentGatewayNotReachable
   implements Exception
 {
   constructor(
-    public error = error,
+    public error = null,
     public code = errorCodes[1],
     public message = ErrorCodeMessages[errorCodes[1]],
   ) {
-    super(message, HttpStatus.NOT_FOUND);
+    super(
+      {
+        error,
+        code,
+        message,
+      },
+      HttpStatus.NOT_FOUND,
+    );
   }
 }

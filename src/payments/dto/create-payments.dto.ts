@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsOptional, IsNumber, IsObject } from 'class-validator';
 import { Type } from 'class-transformer';
-import { Customer } from 'src/customer/customer.interface';
-import { CreateCustomerDto } from 'src/customer/dto/create-customer.dto';
-import { PaymentMethod } from 'src/payment-methods/payment-methods.interface';
-import { PaymentGatewayConfig } from 'src/utils/payment-gateway-config.interface';
+import { Customer } from '../../customer/customer.interface';
+import { CreateCustomerDto } from '../../customer/dto/create-customer.dto';
+import { PaymentMethod } from '../../payment-methods/payment-methods.interface';
+import { PaymentGatewayConfig } from '../../utils/payment-gateway-config.interface';
 import { PaymentParam } from '../payments.interface';
-import { PaymentGatewayConfigDto } from 'src/payment-gateway-config/payment-gatway-config.dto';
+import { PaymentGatewayConfigDto } from '../../payment-gateway-config/payment-gatway-config.dto';
 
 export class CreatePaymentsDto implements PaymentParam {
   @ApiProperty({

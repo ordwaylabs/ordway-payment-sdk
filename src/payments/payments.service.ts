@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { NonSupportedByPaymentGateway } from 'src/errors/non-supported-by-payment-gateway';
+import { NonSupportedByPaymentGateway } from '../errors/non-supported-by-payment-gateway';
 import { CreatePaymentsDto } from './dto/create-payments.dto';
 import { GetPaymentDto } from './dto/get-payment.dto';
 import { ReconcilePaymentsDto } from './dto/reconcile-payments.dto';

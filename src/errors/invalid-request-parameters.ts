@@ -6,10 +6,17 @@ export class InvalidRequestParameters
   implements Exception
 {
   constructor(
-    public error = error,
+    public error = null,
     public code = errorCodes[2],
     public message = ErrorCodeMessages[errorCodes[2]],
   ) {
-    super(message, HttpStatus.UNPROCESSABLE_ENTITY);
+    super(
+      {
+        error,
+        code,
+        message,
+      },
+      HttpStatus.UNPROCESSABLE_ENTITY,
+    );
   }
 }
