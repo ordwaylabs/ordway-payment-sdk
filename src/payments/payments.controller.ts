@@ -17,26 +17,26 @@ export class PaymentsController {
 
   @Post('/get_payment')
   get(@Body() getPaymentDto: GetPaymentDto) {
-    this.paymentsService.get(getPaymentDto);
+    return this.paymentsService.get(getPaymentDto);
   }
 
   @Post('/create_payment')
   create(@Body() createPaymentDto: CreatePaymentsDto) {
-    this.paymentsService.create(createPaymentDto);
+    return this.paymentsService.create(createPaymentDto);
   }
 
   @Post('/refund_payment')
   refund(@Body() refundPaymentDto: RefundPaymentsDto) {
-    this.paymentsService.refund(refundPaymentDto);
+    return this.paymentsService.refund(refundPaymentDto);
   }
 
   @Post('/void_payment')
   void(@Body() voidPaymentDto: VoidPaymentsDto) {
-    this.paymentsService.void(voidPaymentDto);
+    return this.paymentsService.void(voidPaymentDto);
   }
 
   @Post('/reconcile_payment')
   reconcile(@Body() reconcilePaymentDto: ReconcilePaymentsDto) {
-    this.paymentsService.reconcile(reconcilePaymentDto);
+    return this.paymentsService.reconcile(reconcilePaymentDto);
   }
 }

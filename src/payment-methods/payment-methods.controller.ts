@@ -19,42 +19,52 @@ export class PaymentMethodsController {
   getCustomerPaymentMethod(
     @Body() getCustomerPaymentMethodDto: GetCustomerPaymentMethodDto,
   ) {
-    this.paymentMethodsService.getCustomerPaymentMethods(
+    return this.paymentMethodsService.getCustomerPaymentMethods(
       getCustomerPaymentMethodDto,
     );
   }
 
   @Post('get_payment_method')
   getPaymentMethodDetails(@Body() getPaymentMethodDto: GetPaymentMethodDto) {
-    this.paymentMethodsService.getPaymentMethodDetails(getPaymentMethodDto);
+    return this.paymentMethodsService.getPaymentMethodDetails(
+      getPaymentMethodDto,
+    );
   }
 
   @Post('get_add_cc_method_form')
   getAddCCMethodForm(
     @Body() getAddPaymentMethodFormDto: GetAddPaymentMethodFormDto,
   ) {
-    this.paymentMethodsService.getAddCCMethodForm(getAddPaymentMethodFormDto);
+    return this.paymentMethodsService.getAddCCMethodForm(
+      getAddPaymentMethodFormDto,
+    );
   }
 
   @Post('get_add_ach_method_form')
   getAddACHMethodForm(
     @Body() getAddPaymentMethodFormDto: GetAddPaymentMethodFormDto,
   ) {
-    this.paymentMethodsService.getAddACHMethodForm(getAddPaymentMethodFormDto);
+    return this.paymentMethodsService.getAddACHMethodForm(
+      getAddPaymentMethodFormDto,
+    );
   }
 
   @Post('add_payment_method')
   addPaymentMethod(@Body() addPaymentMethodDto: AddPaymentMethodDto) {
-    this.paymentMethodsService.addPaymentMethod(addPaymentMethodDto);
+    return this.paymentMethodsService.addPaymentMethod(addPaymentMethodDto);
   }
 
   @Post('update_payment_method')
   updatePaymentMethod(@Body() updatePaymentMethodDto: AddPaymentMethodDto) {
-    this.paymentMethodsService.updatePaymentMethod(updatePaymentMethodDto);
+    return this.paymentMethodsService.updatePaymentMethod(
+      updatePaymentMethodDto,
+    );
   }
 
   @Post('delete_payment_method')
   deletePaymentMethod(@Body() deletePaymentMethodDto: DeletePaymentMethodDto) {
-    this.paymentMethodsService.deletePaymentMethod(deletePaymentMethodDto);
+    return this.paymentMethodsService.deletePaymentMethod(
+      deletePaymentMethodDto,
+    );
   }
 }

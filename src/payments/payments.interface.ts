@@ -95,31 +95,31 @@ export interface PaymentServiceInterface {
    * getPayment
    * endpoint: get (POST)
    */
-  get: (PaymentParam) => PaymentResponse;
+  get: (PaymentParam) => Promise<PaymentResponse>;
   /**
    * createPayment
    * endpoint: create (POST)
    */
-  create: (params: PaymentParam) => PaymentResponse;
+  create: (params: PaymentParam) => Promise<PaymentResponse>;
   /**
    * refundPayment
    * endpoint: refund (POST)
    */
   refund: (
     params: Partial<PaymentParam> | Partial<PaymentResponse>,
-  ) => PaymentResponse;
+  ) => Promise<PaymentResponse>;
   /**
    * voidPayment
    * endpoint: void (POST)
    */
   void: (
     params: Partial<PaymentParam> | Partial<PaymentResponse>,
-  ) => PaymentResponse;
+  ) => Promise<PaymentResponse>;
   /**
    * reconcilePayments
    * endpoint: reconcile (POST)
    */
   reconcile: (
     params: Partial<PaymentParam> | Partial<PaymentResponse>,
-  ) => PaymentResponse;
+  ) => Promise<PaymentResponse>;
 }

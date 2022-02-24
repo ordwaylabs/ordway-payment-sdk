@@ -5,12 +5,12 @@ import { Customer, PaymentGatewayCustomer } from './customer.interface';
 @Injectable()
 export class CustomerService implements PaymentGatewayCustomer {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  get(customer_uid: string): Customer {
+  async get(customer_uid: string): Promise<Customer> {
     throw new NonSupportedByPaymentGateway();
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  create(customer: Customer): Customer {
+  async create(customer: Customer): Promise<Customer> {
     throw new NonSupportedByPaymentGateway();
   }
 }

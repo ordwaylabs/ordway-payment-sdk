@@ -12,21 +12,25 @@ export class SetupTenantController {
 
   @Get('get_setup_fields')
   getSetupFields() {
-    this.setupTenantService.getSetupFields();
+    return this.setupTenantService.getSetupFields();
   }
 
   @Get('get_manage_fields')
   getManageFields() {
-    this.setupTenantService.getSetupFields();
+    return this.setupTenantService.getSetupFields();
   }
 
   @Post('register_payment_gateway')
-  registerPaymentGateway(@Body() params) {
-    this.setupTenantService.registerPaymentGatewayAccountDetails(params);
+  async registerPaymentGateway(@Body() params) {
+    return await this.setupTenantService.registerPaymentGatewayAccountDetails(
+      params,
+    );
   }
 
   @Post('update_payment_gateway')
-  updatePaymentGateway(@Body() params) {
-    this.setupTenantService.updatePaymentGatewayAccountDetails(params);
+  async updatePaymentGateway(@Body() params) {
+    return await this.setupTenantService.updatePaymentGatewayAccountDetails(
+      params,
+    );
   }
 }

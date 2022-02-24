@@ -20,11 +20,11 @@ export interface PaymentGatewayCustomer {
    * PaymentMethods
    * endpoint => get_customer (GET)
    */
-  get: (customer_uid: string) => Customer;
+  get: (customer_uid: string) => Promise<Customer>;
 
   /**
    * PaymentMethods
    * endpoint => get_customer (POST)
    */
-  create: (customer: Customer) => Customer;
+  create: (customer: Customer) => Promise<Customer>;
 }

@@ -10,33 +10,33 @@ import { PaymentResponse, PaymentServiceInterface } from './payments.interface';
 @Injectable()
 export class PaymentsService implements PaymentServiceInterface {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  get(PaymentParam: GetPaymentDto): PaymentResponse {
+  async get(PaymentParam: GetPaymentDto): Promise<PaymentResponse> {
     throw new NonSupportedByPaymentGateway();
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  create(params: CreatePaymentsDto): PaymentResponse {
+  async create(params: CreatePaymentsDto): Promise<PaymentResponse> {
     throw new NonSupportedByPaymentGateway();
   }
 
-  refund(
+  async refund(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params: RefundPaymentsDto,
-  ): PaymentResponse {
+  ): Promise<PaymentResponse> {
     throw new NonSupportedByPaymentGateway();
   }
 
-  void(
+  async void(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params: VoidPaymentsDto,
-  ): PaymentResponse {
+  ): Promise<PaymentResponse> {
     throw new NonSupportedByPaymentGateway();
   }
 
-  reconcile(
+  async reconcile(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params: ReconcilePaymentsDto,
-  ): PaymentResponse {
+  ): Promise<PaymentResponse> {
     throw new NonSupportedByPaymentGateway();
   }
 }

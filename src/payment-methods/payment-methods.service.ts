@@ -14,15 +14,17 @@ import {
 
 @Injectable()
 export class PaymentMethodsService implements PaymentMethodsServiceInterface {
-  getCustomerPaymentMethods(
+  async getCustomerPaymentMethods(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params: GetCustomerPaymentMethodDto,
-  ): PaymentMethod[] {
+  ): Promise<PaymentMethod[]> {
     throw new NonSupportedByPaymentGateway();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getPaymentMethodDetails(params: GetPaymentMethodDto): PaymentMethod {
+  async getPaymentMethodDetails(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    params: GetPaymentMethodDto,
+  ): Promise<PaymentMethod> {
     throw new NonSupportedByPaymentGateway();
   }
 
@@ -37,19 +39,21 @@ export class PaymentMethodsService implements PaymentMethodsServiceInterface {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  addPaymentMethod(params: AddPaymentMethodDto): PaymentMethod {
+  async addPaymentMethod(params: AddPaymentMethodDto): Promise<PaymentMethod> {
     throw new NonSupportedByPaymentGateway();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  updatePaymentMethod(params: AddPaymentMethodDto): PaymentMethod {
+  async updatePaymentMethod(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    params: AddPaymentMethodDto,
+  ): Promise<PaymentMethod> {
     throw new NonSupportedByPaymentGateway();
   }
 
-  deletePaymentMethod(
+  async deletePaymentMethod(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params: DeletePaymentMethodDto,
-  ): DeletePaymentMethodResponse {
+  ): Promise<DeletePaymentMethodResponse> {
     throw new NonSupportedByPaymentGateway();
   }
 }

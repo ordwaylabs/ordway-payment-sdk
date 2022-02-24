@@ -13,11 +13,11 @@ export class CustomerController {
 
   @Get(':customer_uid')
   get(@Param() uid: GetCustomerDto) {
-    this.customerService.get(uid.customer_uid);
+    return this.customerService.get(uid.customer_uid);
   }
 
   @Post()
   create(@Body() createCustomerDto) {
-    this.customerService.create(createCustomerDto);
+    return this.customerService.create(createCustomerDto);
   }
 }

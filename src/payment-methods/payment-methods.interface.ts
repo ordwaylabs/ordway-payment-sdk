@@ -67,7 +67,7 @@ export interface PaymentMethodsServiceInterface {
   getCustomerPaymentMethods: (params: {
     gateway_config: PaymentGatewayConfig;
     customer_config: Customer;
-  }) => PaymentMethod[];
+  }) => Promise<PaymentMethod[]>;
   /**
    * PaymentMethods
    * endpoint => {:method_uid}/get_payment_method (POST)
@@ -76,7 +76,7 @@ export interface PaymentMethodsServiceInterface {
     gateway_config: PaymentGatewayConfig;
     customer_config: Customer;
     method_uid: string;
-  }) => PaymentMethod;
+  }) => Promise<PaymentMethod>;
   /**
    * getAddCCMethodForm
    * endpoint => get_add_cc_method_form (POST)
@@ -99,7 +99,7 @@ export interface PaymentMethodsServiceInterface {
     gateway_config: PaymentGatewayConfig;
     customer_config: Customer;
     params: params;
-  }) => PaymentMethod;
+  }) => Promise<PaymentMethod>;
   /**
    * updatePaymentMethod
    * endpoint => update_payment_method (POST)
@@ -108,7 +108,7 @@ export interface PaymentMethodsServiceInterface {
     gateway_config: PaymentGatewayConfig;
     customer_config: Customer;
     params: params;
-  }) => PaymentMethod;
+  }) => Promise<PaymentMethod>;
   /**
    * deletePaymentMethod
    * endpoint => delete_payment_method (POST)
@@ -118,5 +118,5 @@ export interface PaymentMethodsServiceInterface {
     customer_config: Customer;
     method_uid: string;
     method_uids: string[];
-  }) => DeletePaymentMethodResponse;
+  }) => Promise<DeletePaymentMethodResponse>;
 }

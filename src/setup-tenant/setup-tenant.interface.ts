@@ -24,11 +24,11 @@ export interface SetupTenantServiceInterface {
    */
   registerPaymentGatewayAccountDetails: (params: {
     [any: string]: number | string;
-  }) => PaymentGatewayConfig;
+  }) => Promise<PaymentGatewayConfig>;
   /**
    * Updates the payment gateway details for the given account.
    */
   updatePaymentGatewayAccountDetails: (params: {
     [any: string]: number | string;
-  }) => PaymentGatewayConfig;
+  }) => Promise<PaymentGatewayConfig>;
 }
