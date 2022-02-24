@@ -18,17 +18,17 @@ export interface SetupTenantFieldsServiceInterface {
 /**
  * On boarding the account service to implement.
  */
-export interface SetupTenantServiceInterface {
+export interface SetupTenantServiceInterface<CreateDto, UpdateDto> {
   /**
    * Retrieves the payment gateway details for the given account.
    */
-  registerPaymentGatewayAccountDetails: (params: {
-    [any: string]: number | string;
-  }) => Promise<PaymentGatewayConfig>;
+  registerPaymentGatewayAccountDetails: (
+    params: CreateDto,
+  ) => Promise<PaymentGatewayConfig>;
   /**
    * Updates the payment gateway details for the given account.
    */
-  updatePaymentGatewayAccountDetails: (params: {
-    [any: string]: number | string;
-  }) => Promise<PaymentGatewayConfig>;
+  updatePaymentGatewayAccountDetails: (
+    params: UpdateDto,
+  ) => Promise<PaymentGatewayConfig>;
 }
