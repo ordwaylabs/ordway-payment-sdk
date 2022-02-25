@@ -9,10 +9,14 @@ import { NonSupportedByPaymentGateway } from '../errors/non-supported-by-payment
 
 import setupFields from '../../setup-files/setup-fields.json';
 import manageFields from '../../setup-files/manage-fields.json';
+import { CreateSetupTenantDto } from './dto/create-setup-tenant.dto';
+import { UpdateSetupTenantDto } from './dto/update-setup-tenant.dto';
 
 @Injectable()
 export class SetupTenantService
-  implements SetupTenantServiceInterface, SetupTenantFieldsServiceInterface
+  implements
+    SetupTenantServiceInterface<CreateSetupTenantDto, UpdateSetupTenantDto>,
+    SetupTenantFieldsServiceInterface
 {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async registerPaymentGatewayAccountDetails(params: {
