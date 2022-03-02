@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 import { PaymentGatewayConfigDto } from '../../payment-gateway-config/payment-gatway-config.dto';
 import { PaymentGatewayConfig } from '../../utils/payment-gateway-config.interface';
 import { PaymentParam } from '../payments.interface';
@@ -19,4 +19,39 @@ export class ReconcilePaymentsDto implements PaymentParam {
   })
   @IsString({ each: true })
   payments: string[];
+
+  @ApiProperty({
+    title: 'How many results to return. Between 1 and 100, defaults to 20',
+    type: 'number',
+  })
+  @IsNumber()
+  limit: number;
+
+  @ApiProperty({
+    title: 'How many results to skip',
+    type: 'number',
+  })
+  @IsNumber()
+  offset: number;
+
+  @ApiProperty({
+    title: 'Datetime to start the search from, in ISO8601 format',
+    type: 'Date',
+  })
+  @IsNumber()
+  from: Date;
+
+  @ApiProperty({
+    title: 'Datetime to start the search to, in ISO8601 format',
+    type: 'Date',
+  })
+  @IsNumber()
+  to: Date;
+
+  @ApiProperty({
+    title: 'Customer ID to be filtered',
+    type: 'string',
+  })
+  @IsNumber()
+  customer_uid: string;
 }

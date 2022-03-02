@@ -8,6 +8,44 @@ import { PaymentGatewayConfig } from '../../utils/payment-gateway-config.interfa
 import { PaymentParam } from '../payments.interface';
 import { PaymentGatewayConfigDto } from '../../payment-gateway-config/payment-gatway-config.dto';
 
+class AddressDto {
+  @ApiProperty({
+    type: 'string',
+  })
+  @IsString()
+  line1: string;
+
+  @ApiProperty({
+    type: 'string',
+  })
+  @IsString()
+  line2: string;
+
+  @ApiProperty({
+    type: 'string',
+  })
+  @IsOptional()
+  @IsString()
+  city: string;
+
+  @ApiProperty({
+    type: 'string',
+  })
+  @IsString()
+  state: string;
+
+  @ApiProperty({
+    type: 'string',
+  })
+  @IsString()
+  postal_code: string;
+
+  @ApiProperty({
+    type: 'string',
+  })
+  @IsString()
+  country_code: string;
+}
 export class CreatePaymentsDto implements PaymentParam {
   @ApiProperty({
     title: 'Gateway Details',
@@ -91,5 +129,5 @@ export class CreatePaymentsDto implements PaymentParam {
   })
   @IsOptional()
   @IsObject()
-  address: object;
+  address: AddressDto;
 }

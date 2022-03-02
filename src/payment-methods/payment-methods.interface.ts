@@ -1,6 +1,9 @@
 import { PaymentGatewayConfig } from '../utils/payment-gateway-config.interface';
-import { Customer } from '../customer/customer.interface';
 import { HtmlFields } from '../utils/html-field.interface';
+import { GetCustomerPaymentMethodDto } from './dto/get-customer-payment-method.dto';
+import { GetPaymentMethodDto } from './dto/get-payment-method.dto';
+import { AddPaymentMethodDto } from './dto/add-payment-method.dto';
+import { DeletePaymentMethodDto } from './dto/delete-payment-method.dto';
 
 export enum PaymentType {
   CREDITCARD = 0,
@@ -24,6 +27,10 @@ export interface PaymentMethod {
    */
   method_uid: string;
   /**
+   * Card holder name
+   */
+  cardholder: string;
+  /**
    * The integer number indicating the payment type
    * 0 => credit card
    * 1 => ACH
@@ -42,9 +49,13 @@ export interface PaymentMethod {
    */
   type: string;
   /**
-   * The expiry month and year for the given payment method applicable for credit cards
+   * The expiry month for the given payment method applicable for credit cards
    */
-  expiry?: string;
+  expiry_month?: string;
+  /**
+   * The expiry year for the given payment method applicable for credit cards
+   */
+  expiry_year?: string;
   /**
    * The flag to indicate if the given payment method is the default payment method or not
    */
@@ -64,19 +75,16 @@ export interface PaymentMethodsServiceInterface {
    * PaymentMethods
    * endpoint => get_customer_payment_methods (POST)
    */
-  getCustomerPaymentMethods: (params: {
-    gateway_config: PaymentGatewayConfig;
-    customer_config: Customer;
-  }) => Promise<PaymentMethod[]>;
+  getCustomerPaymentMethods: (
+    params: GetCustomerPaymentMethodDto,
+  ) => Promise<PaymentMethod[]>;
   /**
    * PaymentMethods
    * endpoint => {:method_uid}/get_payment_method (POST)
    */
-  getPaymentMethodDetails: (params: {
-    gateway_config: PaymentGatewayConfig;
-    customer_config: Customer;
-    method_uid: string;
-  }) => Promise<PaymentMethod>;
+  getPaymentMethodDetails: (
+    params: GetPaymentMethodDto,
+  ) => Promise<PaymentMethod>;
   /**
    * getAddCCMethodForm
    * endpoint => get_add_cc_method_form (POST)
@@ -95,28 +103,17 @@ export interface PaymentMethodsServiceInterface {
    * addPaymentMethod
    * endpoint => add_payment_method (POST)
    */
-  addPaymentMethod: (params: {
-    gateway_config: PaymentGatewayConfig;
-    customer_config: Customer;
-    params: params;
-  }) => Promise<PaymentMethod>;
+  addPaymentMethod: (params: AddPaymentMethodDto) => Promise<PaymentMethod>;
   /**
    * updatePaymentMethod
    * endpoint => update_payment_method (POST)
    */
-  updatePaymentMethod: (params: {
-    gateway_config: PaymentGatewayConfig;
-    customer_config: Customer;
-    params: params;
-  }) => Promise<PaymentMethod>;
+  updatePaymentMethod: (params: AddPaymentMethodDto) => Promise<PaymentMethod>;
   /**
    * deletePaymentMethod
    * endpoint => delete_payment_method (POST)
    */
-  deletePaymentMethod: (params: {
-    gateway_config: PaymentGatewayConfig;
-    customer_config: Customer;
-    method_uid: string;
-    method_uids: string[];
-  }) => Promise<DeletePaymentMethodResponse>;
+  deletePaymentMethod: (
+    params: DeletePaymentMethodDto,
+  ) => Promise<DeletePaymentMethodResponse>;
 }

@@ -43,6 +43,13 @@ export class RefundPaymentsDto implements PaymentParam {
   reason: string;
 
   @ApiProperty({
+    title: 'Unique id for payment',
+    type: 'string',
+  })
+  @IsString()
+  payment_uid: string;
+
+  @ApiProperty({
     title: 'Optional parameter',
     type: 'object',
   })

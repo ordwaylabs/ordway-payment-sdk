@@ -2,6 +2,33 @@ import { Customer } from '../customer/customer.interface';
 import { PaymentGatewayConfig } from '../utils/payment-gateway-config.interface';
 import { PaymentMethod } from '../payment-methods/payment-methods.interface';
 
+export interface Address {
+  /**
+   * Line 1 of the address
+   */
+  line1: string;
+  /**
+   * Line 2 of the address
+   */
+  line2: string;
+  /**
+   * City of the entity present
+   */
+  city: string;
+  /**
+   * Sate of the city
+   */
+  state: string;
+  /**
+   * Zip code
+   */
+  postal_code: string;
+  /**
+   * Country code of the entity
+   */
+  country_code: string;
+}
+
 export interface PaymentParam {
   gateway_config: PaymentGatewayConfig;
   customer_config?: Customer;
@@ -42,7 +69,7 @@ export interface PaymentParam {
   /**
    * The address details if configured by the payment request.
    */
-  address?: object;
+  address?: Address;
   /**
    * The optional reason field that can be provided for the refund request
    */
@@ -51,6 +78,26 @@ export interface PaymentParam {
    * The transaction reference for refund of the payments
    */
   transaction_ref?: string;
+  /**
+   * How many results to return. Between 1 and 100, defaults to 20
+   */
+  limit?: number;
+  /**
+   * How many results to skip
+   */
+  offset?: number;
+  /**
+   * Datetime to start the search from, in ISO8601 format
+   */
+  from?: Date;
+  /**
+   * Datetime to start the search to, in ISO8601 format
+   */
+  to?: Date;
+  /**
+   * Customer ID to be filtered.
+   */
+  customer_uid?: string;
 }
 
 export interface PaymentResponse {
@@ -121,5 +168,5 @@ export interface PaymentServiceInterface {
    */
   reconcile: (
     params: Partial<PaymentParam> | Partial<PaymentResponse>,
-  ) => Promise<PaymentResponse>;
+  ) => Promise<PaymentResponse[]>;
 }

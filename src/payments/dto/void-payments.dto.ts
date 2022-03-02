@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsOptional, IsString, IsObject } from 'class-validator';
+import { IsOptional, IsString, IsObject, IsNumber } from 'class-validator';
 import { PaymentGatewayConfigDto } from '../../payment-gateway-config/payment-gatway-config.dto';
 import { PaymentGatewayConfig } from '../../utils/payment-gateway-config.interface';
 import { PaymentParam } from '../payments.interface';
@@ -18,6 +18,21 @@ export class VoidPaymentsDto implements PaymentParam {
     type: 'string',
   })
   transaction_ref: string;
+
+  @ApiProperty({
+    title: 'Amount',
+    type: 'number',
+  })
+  @IsOptional()
+  @IsNumber()
+  amount: number;
+
+  @ApiProperty({
+    title: 'Currency',
+    type: 'string',
+  })
+  @IsString()
+  currency: string;
 
   @ApiProperty({
     title: 'Reason for void',
