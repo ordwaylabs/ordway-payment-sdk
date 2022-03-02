@@ -36,7 +36,7 @@ export class PaymentsService implements PaymentServiceInterface {
   async reconcile(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params: ReconcilePaymentsDto,
-  ): Promise<PaymentResponse> {
+  ): Promise<PaymentResponse[]> {
     throw new NonSupportedByPaymentGateway();
   }
 }
